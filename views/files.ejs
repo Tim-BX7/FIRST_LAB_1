@@ -1,0 +1,32 @@
+<%- include('partials/header', { title }) %>
+<section class="grid-two">
+  <article class="card">
+    <h1>Files</h1>
+    <% files.forEach((file) => { %>
+      <div class="list-item">
+        <div>
+          <strong><%= file.original_name %></strong>
+          <p class="muted"><%= file.note %></p>
+        </div>
+        <a href="/files/<%= file.id %>/download">Download</a>
+      </div>
+    <% }) %>
+  </article>
+
+  <article class="card">
+    <h2>Upload Asset</h2>
+    <form method="post" action="/files/upload" enctype="multipart/form-data" class="stack">
+      <label>Project ID
+        <input type="number" name="project_id" value="1" />
+      </label>
+      <label>Asset
+        <input type="file" name="document" required />
+      </label>
+      <label>Note
+        <textarea name="note" rows="4"></textarea>
+      </label>
+      <button class="button" type="submit">Upload</button>
+    </form>
+  </article>
+</section>
+<%- include('partials/footer') %>

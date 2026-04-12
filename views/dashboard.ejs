@@ -1,0 +1,60 @@
+<%- include('partials/header', { title }) %>
+<section class="card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Workspace Overview</p>
+      <h1>Welcome, <%= currentUser.display_name %></h1>
+    </div>
+    <div class="badge-row">
+      <span class="pill"><%= currentUser.plan %> plan</span>
+      <span class="pill"><%= currentUser.role %></span>
+    </div>
+  </div>
+  <% if (currentUser.role === 'admin') { %>
+    <p class="muted">Legacy auth migration marker: <code><%= flags.sqli_login %></code></p>
+  <% } %>
+</section>
+
+<section class="grid-two">
+  <article class="card">
+    <h2>Projects</h2>
+    <% projects.forEach((project) => { %>
+      <a class="list-item" href="/projects/<%= project.id %>">
+        <strong><%= project.name %></strong>
+        <span><%= project.status %></span>
+      </a>
+    <% }) %>
+  </article>
+
+  <article class="card">
+    <h2>Support Tickets</h2>
+    <% tickets.forEach((ticket) => { %>
+      <div class="list-item">
+        <strong><%= ticket.title %></strong>
+        <span><%= ticket.status %></span>
+      </div>
+    <% }) %>
+  </article>
+</section>
+
+<section class="grid-two">
+  <article class="card">
+    <h2>Recent Files</h2>
+    <% files.forEach((file) => { %>
+      <div class="list-item">
+        <strong><%= file.original_name %></strong>
+        <a href="/files/<%= file.id %>/download">Download</a>
+      </div>
+    <% }) %>
+  </article>
+  <article class="card">
+    <h2>Recent Audit Events</h2>
+    <% logs.forEach((log) => { %>
+      <div class="list-item">
+        <strong><%= log.action %></strong>
+        <span><%= log.details %></span>
+      </div>
+    <% }) %>
+  </article>
+</section>
+<%- include('partials/footer') %>

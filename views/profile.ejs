@@ -1,0 +1,43 @@
+<%- include('partials/header', { title }) %>
+<section class="grid-two">
+  <article class="card">
+    <h1>Profile</h1>
+    <form method="post" action="/profile" class="stack">
+      <label>Display name
+        <input type="text" name="display_name" value="<%= currentUser.display_name %>" />
+      </label>
+      <label>Bio
+        <textarea name="bio" rows="4"><%= currentUser.bio %></textarea>
+      </label>
+      <label>Default ticket filter
+        <input type="text" name="default_filter" value="<%= currentUser.default_filter %>" />
+      </label>
+      <label>Email template
+        <textarea name="email_template" rows="4"><%= currentUser.email_template %></textarea>
+      </label>
+      <button class="button" type="submit">Save Profile</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h2>Security Settings</h2>
+    <form method="post" action="/account/email" class="stack compact">
+      <label>Change email
+        <input type="email" name="email" value="<%= currentUser.email %>" />
+      </label>
+      <button class="button button-secondary" type="submit">Update Email</button>
+    </form>
+
+    <form method="post" action="/account/password" class="stack compact">
+      <label>Change password
+        <input type="password" name="password" />
+      </label>
+      <button class="button button-secondary" type="submit">Update Password</button>
+    </form>
+
+    <h3>API Token</h3>
+    <textarea rows="5" readonly><%= token %></textarea>
+    <p class="muted">Mobile clients use this bearer token for REST endpoints.</p>
+  </article>
+</section>
+<%- include('partials/footer') %>

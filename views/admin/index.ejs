@@ -1,0 +1,38 @@
+<%- include('../partials/header', { title }) %>
+<section class="card">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Operations Console</p>
+      <h1>Admin Panel</h1>
+    </div>
+    <% if (currentUser.role !== 'admin' && currentUser.is_support) { %>
+      <span class="pill"><%= flags.broken_access %></span>
+    <% } %>
+  </div>
+  <div class="action-row">
+    <a class="button button-secondary" href="/admin/tools">Diagnostics</a>
+    <a class="button button-secondary" href="/admin/email">Email Preview</a>
+  </div>
+</section>
+
+<section class="grid-two">
+  <article class="card">
+    <h2>Users</h2>
+    <% users.forEach((user) => { %>
+      <a class="list-item" href="/admin/users/<%= user.id %>">
+        <strong><%= user.display_name %></strong>
+        <span><%= user.email %> / <%= user.role %> / support=<%= user.is_support %></span>
+      </a>
+    <% }) %>
+  </article>
+  <article class="card">
+    <h2>Recent Logs</h2>
+    <% recentLogs.forEach((log) => { %>
+      <div class="list-item">
+        <strong><%= log.action %></strong>
+        <span><%= log.details %></span>
+      </div>
+    <% }) %>
+  </article>
+</section>
+<%- include('../partials/footer') %>

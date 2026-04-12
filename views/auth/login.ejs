@@ -1,0 +1,15 @@
+<%- include('../partials/header', { title }) %>
+<section class="card narrow">
+  <h1>Login</h1>
+  <form method="post" class="stack">
+    <label>Email
+      <input type="email" name="email" required />
+    </label>
+    <label>Password
+      <input type="password" name="password" required />
+    </label>
+    <button class="button" type="submit">Sign In</button>
+  </form>
+  <p class="muted">Demo accounts are listed in the README.</p>
+</section>
+<%- include('../partials/footer') %>

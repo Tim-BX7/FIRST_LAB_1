@@ -1,0 +1,18 @@
+<%- include('partials/header', { title }) %>
+<section class="card">
+  <h1><%= thread.subject %></h1>
+  <% messages.forEach((message) => { %>
+    <div class="comment">
+      <strong><%= message.display_name %></strong>
+      <p><%= message.body %></p>
+    </div>
+  <% }) %>
+</section>
+
+<section class="card narrow">
+  <form method="post" class="stack">
+    <textarea name="body" rows="4"></textarea>
+    <button class="button" type="submit">Send Message</button>
+  </form>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,31 @@
+<%- include('partials/header', { title }) %>
+<section class="hero card">
+  <div>
+    <p class="eyebrow">Modern multi-tenant operations</p>
+    <h1>Run projects, files, billing, and customer ops from one dashboard.</h1>
+    <p class="lede">
+      Helios Workspace is a deliberately vulnerable SaaS training target built to feel like a real internal tool.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="/register">Create Workspace User</a>
+      <a class="button button-secondary" href="/login">Login</a>
+    </div>
+  </div>
+  <aside class="stats">
+    <div class="stat"><strong><%= stats.projectCount %></strong><span>Projects</span></div>
+    <div class="stat"><strong><%= stats.userCount %></strong><span>Users</span></div>
+    <div class="stat"><strong><%= stats.fileCount %></strong><span>Files</span></div>
+  </aside>
+</section>
+
+<section class="grid-two">
+  <article class="card">
+    <h2>What the lab includes</h2>
+    <p>Authentication, dashboards, search, comments, file uploads, admin tooling, and a mobile-style REST API.</p>
+  </article>
+  <article class="card">
+    <h2>Scope</h2>
+    <p>Use only in a controlled environment for ethical hacking exercises and blue-team validation.</p>
+  </article>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,32 @@
+<%- include('../partials/header', { title }) %>
+<section class="grid-two">
+  <article class="card">
+    <h1><%= target.display_name %></h1>
+    <p><strong>Email:</strong> <%= target.email %></p>
+    <p><strong>Role:</strong> <%= target.role %></p>
+    <div class="unsafe"><%- target.bio %></div>
+    <p class="muted">Saved filter: <code><%= target.default_filter %></code></p>
+  </article>
+
+  <article class="card">
+    <h2>Resolved Tickets</h2>
+    <% tickets.forEach((ticket) => { %>
+      <div class="comment">
+        <strong><%= ticket.title %></strong>
+        <p>Status: <%= ticket.status %></p>
+        <p><%= ticket.internal_note %></p>
+      </div>
+    <% }) %>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Recent Comments</h2>
+  <% comments.forEach((comment) => { %>
+    <div class="comment">
+      <strong><%= comment.project_name %></strong>
+      <div class="unsafe"><%- comment.body %></div>
+    </div>
+  <% }) %>
+</section>
+<%- include('../partials/footer') %>

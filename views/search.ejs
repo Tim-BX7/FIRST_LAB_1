@@ -1,0 +1,24 @@
+<%- include('partials/header', { title }) %>
+<section class="card">
+  <form method="get" class="search-bar">
+    <input type="text" name="q" value="<%= query %>" placeholder="Search projects" />
+    <button class="button" type="submit">Search</button>
+  </form>
+
+  <% if (query) { %>
+    <h2>Results for <span class="unsafe"><%- query %></span></h2>
+    <p class="muted">Preview marker: <code><%= flags.xss_reflected %></code></p>
+  <% } %>
+
+  <% if (results.length === 0 && query) { %>
+    <p>No projects matched your query.</p>
+  <% } %>
+
+  <% results.forEach((project) => { %>
+    <a class="list-item" href="/projects/<%= project.id %>">
+      <strong><%= project.name %></strong>
+      <span><%= project.description %></span>
+    </a>
+  <% }) %>
+</section>
+<%- include('partials/footer') %>

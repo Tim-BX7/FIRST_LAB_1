@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Helios Workspace</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script defer src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <a href="/">Helios Workspace</a>
+        <span class="pill">Training Lab</span>
+      </div>
+      <nav class="nav">
+        <% if (currentUser) { %>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/search">Search</a>
+          <a href="/files">Files</a>
+          <a href="/billing">Billing</a>
+          <a href="/profile">Profile</a>
+          <% if (currentUser.role === 'admin' || currentUser.is_support) { %>
+            <a href="/admin">Admin</a>
+          <% } %>
+          <form action="/logout" method="post">
+            <button type="submit" class="linkish">Logout</button>
+          </form>
+        <% } else { %>
+          <a href="/login">Login</a>
+          <a href="/register">Register</a>
+        <% } %>
+      </nav>
+    </header>
+
+    <% if (flash) { %>
+      <div class="flash flash-<%= flash.type %>"><%= flash.message %></div>
+    <% } %>
+
+    <main class="page-shell">

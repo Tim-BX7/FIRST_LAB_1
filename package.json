@@ -1,0 +1,20 @@
+{
+  "name": "lab21-saas-breach-lab",
+  "version": "1.0.0",
+  "description": "Deliberately vulnerable SaaS training lab for ethical hacking practice.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed-only": "node server.js --seed-only"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "sql.js": "^1.13.0"
+  }
+}

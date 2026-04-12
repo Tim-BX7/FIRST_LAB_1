@@ -1,0 +1,18 @@
+<%- include('../partials/header', { title }) %>
+<section class="grid-two">
+  <article class="card">
+    <h1>Email Template Preview</h1>
+    <form method="post" action="/admin/email/preview" class="stack">
+      <textarea name="template" rows="10"><%= template %></textarea>
+      <button class="button" type="submit">Render Preview</button>
+    </form>
+    <p class="muted">Available merge values include <code>user</code>, <code>company</code>, and standard JS helpers.</p>
+  </article>
+
+  <article class="card">
+    <h2>Preview Output</h2>
+    <div class="preview unsafe"><%- preview %></div>
+    <p class="muted">Template marker: <code><%= flags.ssti %></code></p>
+  </article>
+</section>
+<%- include('../partials/footer') %>

@@ -1,0 +1,26 @@
+<%- include('partials/header', { title }) %>
+<section class="card narrow">
+  <h1>Billing & Plans</h1>
+  <p class="muted">Credits: <%= currentUser.credits %> | Current plan: <%= currentUser.plan %></p>
+  <form method="post" action="/billing/upgrade" class="stack">
+    <label>Plan
+      <select name="plan">
+        <option value="starter">Starter</option>
+        <option value="business">Business</option>
+        <option value="enterprise">Enterprise</option>
+      </select>
+    </label>
+    <label>Seats
+      <input type="number" name="seats" value="1" />
+    </label>
+    <label>Coupon
+      <input type="text" name="coupon" placeholder="WELCOME100" />
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="use_credits" value="1" />
+      Apply account credits
+    </label>
+    <button class="button" type="submit">Preview Upgrade</button>
+  </form>
+</section>
+<%- include('partials/footer') %>

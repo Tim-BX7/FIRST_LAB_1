@@ -1,0 +1,19 @@
+<%- include('../partials/header', { title }) %>
+<section class="grid-two">
+  <article class="card">
+    <h1>Diagnostics</h1>
+    <form method="post" action="/admin/tools/trace" class="stack">
+      <label>Host or IP
+        <input type="text" name="host" value="<%= host %>" placeholder="8.8.8.8" />
+      </label>
+      <button class="button" type="submit">Run Connectivity Check</button>
+    </form>
+    <pre class="terminal"><%= output %></pre>
+  </article>
+
+  <article class="card">
+    <h2>Recent App Logs</h2>
+    <pre class="terminal"><%= logSample %></pre>
+  </article>
+</section>
+<%- include('../partials/footer') %>
