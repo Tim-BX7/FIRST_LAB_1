@@ -997,9 +997,9 @@ initDb()
       process.exit(0);
     }
 
-    app.listen(PORT, () => {
-      console.log(`Helios Workspace listening on http://localhost:${PORT}`);
-    });
+   app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
   })
   .catch((error) => {
     console.error(error);
