@@ -9,6 +9,7 @@
     "seed-only": "node server.js --seed-only"
   },
   "dependencies": {
+    "connect-sqlite3": "^0.9.16",
     "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
