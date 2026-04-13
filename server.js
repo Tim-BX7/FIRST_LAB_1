@@ -12,6 +12,7 @@ const { APP_LOG, audit, writeLog } = require("./src/utils/logger");
 const { hashPassword, issueApiToken, verifyPassword, SESSION_SECRET } = require("./src/utils/security");
 const { renderTemplateString } = require("./src/utils/templateEngine");
 const { attachUser, requireLogin, requireAdminish, requireAdminOnly, apiAuth } = require("./src/middleware/auth");
+const { FLAGS } = require("./src/flags");
 
 const asyncExecFile = promisify(execFile);
 const app = express();
@@ -108,6 +109,7 @@ app.use((req, res, next) => {
 app.use(attachUser);
 
 app.locals.formatMoney = (cents) => `$${(Number(cents) / 100).toFixed(2)}`;
+app.locals.flagKeys = Object.keys(FLAGS || {});
 
 app.use((req, res, next) => {
   if (!req.session.csrfToken) {

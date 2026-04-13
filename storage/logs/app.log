@@ -5,3 +5,12 @@
 {"ts":"2026-04-13T03:41:21.620Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"owner@acme.local","url":"/dashboard"}}
 {"ts":"2026-04-13T03:41:21.710Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"owner@acme.local","url":"/dashboard"}}
 {"ts":"2026-04-13T03:41:21.823Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"owner@acme.local","url":"/projects/3"}}
+{"ts":"2026-04-13T07:50:44.282Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/dashboard"}}
+{"ts":"2026-04-13T07:50:51.931Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/billing"}}
+{"ts":"2026-04-13T07:50:54.463Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/search"}}
+{"ts":"2026-04-13T07:50:55.218Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
+{"ts":"2026-04-13T07:50:56.098Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
+{"ts":"2026-04-13T07:50:56.633Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/dashboard"}}
+{"ts":"2026-04-13T07:51:02.375Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
+{"ts":"2026-04-13T07:51:03.167Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/billing"}}
+{"ts":"2026-04-13T07:51:06.777Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/profile"}}
