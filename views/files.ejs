@@ -16,6 +16,7 @@
   <article class="card">
     <h2>Upload Asset</h2>
     <form method="post" action="/files/upload" enctype="multipart/form-data" class="stack">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <label>Project ID
         <input type="number" name="project_id" value="1" />
       </label>

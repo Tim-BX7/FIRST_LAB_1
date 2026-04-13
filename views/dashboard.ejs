@@ -10,9 +10,6 @@
       <span class="pill"><%= currentUser.role %></span>
     </div>
   </div>
-  <% if (currentUser.role === 'admin') { %>
-    <p class="muted">Legacy auth migration marker: <code><%= flags.sqli_login %></code></p>
-  <% } %>
 </section>
 
 <section class="grid-two">

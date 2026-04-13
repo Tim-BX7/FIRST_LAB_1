@@ -4,7 +4,7 @@
     <h1><%= target.display_name %></h1>
     <p><strong>Email:</strong> <%= target.email %></p>
     <p><strong>Role:</strong> <%= target.role %></p>
-    <div class="unsafe"><%- target.bio %></div>
+    <div><%= target.bio %></div>
     <p class="muted">Saved filter: <code><%= target.default_filter %></code></p>
   </article>
 
@@ -25,7 +25,7 @@
   <% comments.forEach((comment) => { %>
     <div class="comment">
       <strong><%= comment.project_name %></strong>
-      <div class="unsafe"><%- comment.body %></div>
+      <div><%= comment.body %></div>
     </div>
   <% }) %>
 </section>

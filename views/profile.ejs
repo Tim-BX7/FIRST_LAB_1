@@ -3,6 +3,7 @@
   <article class="card">
     <h1>Profile</h1>
     <form method="post" action="/profile" class="stack">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <label>Display name
         <input type="text" name="display_name" value="<%= currentUser.display_name %>" />
       </label>
@@ -22,6 +23,7 @@
   <article class="card">
     <h2>Security Settings</h2>
     <form method="post" action="/account/email" class="stack compact">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <label>Change email
         <input type="email" name="email" value="<%= currentUser.email %>" />
       </label>
@@ -29,6 +31,7 @@
     </form>
 
     <form method="post" action="/account/password" class="stack compact">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <label>Change password
         <input type="password" name="password" />
       </label>

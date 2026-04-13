@@ -58,7 +58,32 @@ function getFlagValue(scenarioId) {
   return `FLAG{${scenarioId.toUpperCase()}_${digest}}`;
 }
 
+const FLAG_KEYS = [
+  "command_injection",
+  "sqli_login",
+  "sqli_blind",
+  "sqli_second_order",
+  "xss_reflected",
+  "xss_stored",
+  "ssti",
+  "idor",
+  "csrf",
+  "broken_access",
+  "business_logic",
+  "file_upload",
+  "insecure_deserialization",
+  "jwt",
+  "api_mass_assignment",
+  "api_missing_auth"
+];
+
+const FLAGS = FLAG_KEYS.reduce((acc, key) => {
+  acc[key] = getFlagValue(key);
+  return acc;
+}, {});
+
 module.exports = {
   SCENARIOS,
-  getFlagValue
+  getFlagValue,
+  FLAGS
 };

@@ -6,8 +6,7 @@
   </form>
 
   <% if (query) { %>
-    <h2>Results for <span class="unsafe"><%- query %></span></h2>
-    <p class="muted">Preview marker: <code><%= flags.xss_reflected %></code></p>
+    <h2>Results for <span><%= query %></span></h2>
   <% } %>
 
   <% if (results.length === 0 && query) { %>

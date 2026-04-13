@@ -11,6 +11,7 @@
 
 <section class="card narrow">
   <form method="post" class="stack">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
     <textarea name="body" rows="4"></textarea>
     <button class="button" type="submit">Send Message</button>
   </form>

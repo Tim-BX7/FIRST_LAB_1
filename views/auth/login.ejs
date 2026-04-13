@@ -2,6 +2,7 @@
 <section class="card narrow">
   <h1>Login</h1>
   <form method="post" class="stack">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
     <label>Email
       <input type="email" name="email" required />
     </label>
@@ -10,6 +11,5 @@
     </label>
     <button class="button" type="submit">Sign In</button>
   </form>
-  <p class="muted">Demo accounts are listed in the README.</p>
 </section>
 <%- include('../partials/footer') %>

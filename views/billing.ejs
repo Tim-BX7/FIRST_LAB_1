@@ -3,6 +3,7 @@
   <h1>Billing & Plans</h1>
   <p class="muted">Credits: <%= currentUser.credits %> | Current plan: <%= currentUser.plan %></p>
   <form method="post" action="/billing/upgrade" class="stack">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
     <label>Plan
       <select name="plan">
         <option value="starter">Starter</option>

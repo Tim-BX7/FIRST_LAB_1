@@ -5,7 +5,7 @@ const { SCENARIOS, getFlagValue } = require("./flags");
 const { hashPassword } = require("./utils/security");
 
 const DB_PATH = path.join(process.cwd(), "storage", "lab.sqlite");
-const SCHEMA_VERSION = "training-lab-v2";
+const SCHEMA_VERSION = "secure-app-v1";
 
 fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
 
@@ -345,11 +345,11 @@ async function seedDb() {
 
   await db.run(
     "INSERT INTO files (tenant_id, owner_id, project_id, original_name, stored_name, mime_type, size, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    [1, 1, 1, "brand-guide.svg", "seed-brand-guide.svg", "image/svg+xml", 512, "Static asset review: <strong>keep this inert</strong>."]
+    [1, 1, 1, "brand-guide.png", "seed-brand-guide.png", "image/png", 68, "Static asset review for the workspace brand guide."]
   );
   await db.run(
     "INSERT INTO files (tenant_id, owner_id, project_id, original_name, stored_name, mime_type, size, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    [2, 4, 3, "finance-export.html", "northstar-finance-export.html", "text/html", 1204, "Attachment should download safely even when the extension looks active."]
+    [2, 4, 3, "finance-export.png", "northstar-finance-export.png", "image/png", 68, "Finance export preview generated as a safe image attachment."]
   );
 
   await db.run(

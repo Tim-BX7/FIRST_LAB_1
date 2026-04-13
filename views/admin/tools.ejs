@@ -3,6 +3,7 @@
   <article class="card">
     <h1>Diagnostics</h1>
     <form method="post" action="/admin/tools/trace" class="stack">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <label>Host or IP
         <input type="text" name="host" value="<%= host %>" placeholder="8.8.8.8" />
       </label>

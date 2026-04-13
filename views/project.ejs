@@ -17,7 +17,7 @@
     <% comments.forEach((comment) => { %>
       <div class="comment">
         <strong><%= comment.display_name %></strong>
-        <div class="unsafe"><%- comment.body %></div>
+        <div><%= comment.body %></div>
       </div>
     <% }) %>
   </article>
@@ -25,10 +25,10 @@
   <article class="card">
     <h2>Add Comment</h2>
     <form method="post" action="/projects/<%= project.id %>/comments" class="stack">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <textarea name="body" rows="6" placeholder="Share status, feedback, or snippets"></textarea>
       <button class="button" type="submit">Post Comment</button>
     </form>
-    <p class="muted">Moderation marker: <code><%= flags.xss_stored %></code></p>
   </article>
 </section>
 <%- include('partials/footer') %>
