@@ -5,6 +5,7 @@ const crypto = require("crypto");
 const { execFile } = require("child_process");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const SQLiteStore = require("connect-sqlite3")(session);
 const multer = require("multer");
 const { promisify } = require("util");
 const { db, initDb } = require("./src/db");
@@ -24,6 +25,9 @@ const SAFE_UPLOAD_MIME_TYPES = new Set(["image/png", "image/jpeg", "image/gif", 
 const SAFE_UPLOAD_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp"]);
 
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+
+// ✅ FIX 1: Trust the proxy on Render so secure cookies work over HTTPS
+app.set("trust proxy", 1);
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -53,15 +57,21 @@ app.set("views", path.join(process.cwd(), "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+
+// ✅ FIX 2: Use persistent SQLiteStore so sessions survive between requests on Render
 app.use(
   session({
+    store: new SQLiteStore({
+      db: "sessions.sqlite",
+      dir: path.join(process.cwd(), "storage")
+    }),
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
       sameSite: "lax",
-      secure: process.env.NODE_ENV === "production"
+      secure: process.env.NODE_ENV === "production" // ✅ FIX 3: secure=true on production (HTTPS)
     }
   })
 );
@@ -997,9 +1007,9 @@ initDb()
       process.exit(0);
     }
 
-   app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
-});
+    app.listen(PORT, () => {
+      console.log("Server running on port " + PORT);
+    });
   })
   .catch((error) => {
     console.error(error);
