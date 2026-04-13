@@ -68,7 +68,7 @@ app.use(express.static(path.join(process.cwd(), "public")));
 app.use(attachUser);
 
 app.locals.formatMoney = (cents) => `$${(Number(cents) / 100).toFixed(2)}`;
-app.locals.flagKeys = Object.keys(FLAGS);
+app.locals.flagKeys = Object.keys(FLAGS || {});
 
 app.use((req, res, next) => {
   res.locals.flash = req.session.flash || null;
