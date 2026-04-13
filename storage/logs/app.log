@@ -14,3 +14,17 @@
 {"ts":"2026-04-13T07:51:02.375Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
 {"ts":"2026-04-13T07:51:03.167Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/billing"}}
 {"ts":"2026-04-13T07:51:06.777Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/profile"}}
+{"ts":"2026-04-13T08:19:19.700Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/search"}}
+{"ts":"2026-04-13T08:19:20.658Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
+{"ts":"2026-04-13T08:19:21.472Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/billing"}}
+{"ts":"2026-04-13T08:19:22.615Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/profile"}}
+{"ts":"2026-04-13T08:19:23.995Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files"}}
+{"ts":"2026-04-13T08:19:24.535Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/search"}}
+{"ts":"2026-04-13T08:19:25.052Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/dashboard"}}
+{"ts":"2026-04-13T08:19:29.534Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files/5/download"}}
+{"ts":"2026-04-13T08:19:31.831Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files/5/download"}}
+{"ts":"2026-04-13T08:19:33.760Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"tom@gmail.com","url":"/files/5/download"}}
+{"ts":"2026-04-13T08:33:30.370Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"how@gmail.com","url":"/dashboard"}}
+{"ts":"2026-04-13T08:33:38.793Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"how@gmail.com","url":"/search"}}
+{"ts":"2026-04-13T08:33:41.597Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"how@gmail.com","url":"/search?q=%3Bls"}}
+{"ts":"2026-04-13T08:34:07.735Z","level":"info","message":"auth.role_check","meta":{"required":"login","granted":true,"actor":"how@gmail.com","url":"/search?q=%3Cscript%3Ealert%289%29%3C%2Fscript%3E"}}
