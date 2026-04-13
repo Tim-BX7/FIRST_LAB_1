@@ -19,6 +19,32 @@ function writeLog(level, message, meta = {}) {
   fs.appendFileSync(APP_LOG, `${JSON.stringify(entry)}\n`);
 }
 
+function readRecentLogs(limit = 50) {
+  ensureLogs();
+  if (!fs.existsSync(APP_LOG)) {
+    return [];
+  }
+
+  return fs
+    .readFileSync(APP_LOG, "utf8")
+    .split("\n")
+    .filter(Boolean)
+    .slice(-limit)
+    .reverse()
+    .map((line) => {
+      try {
+        return JSON.parse(line);
+      } catch (error) {
+        return {
+          ts: new Date().toISOString(),
+          level: "error",
+          message: "log-parse-failure",
+          meta: { raw: line, error: error.message }
+        };
+      }
+    });
+}
+
 async function audit(db, actorId, tenantId, action, details, ip) {
   try {
     await db.run(
@@ -30,4 +56,4 @@ async function audit(db, actorId, tenantId, action, details, ip) {
   }
 }
 
-module.exports = { APP_LOG, writeLog, audit };
+module.exports = { APP_LOG, writeLog, readRecentLogs, audit };
